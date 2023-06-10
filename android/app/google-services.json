@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "419419890925",
+    "firebase_url": "https://green-wall-561af-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "green-wall-561af",
+    "storage_bucket": "green-wall-561af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419419890925:android:dca24aa2b0d204377c58e4",
+        "android_client_info": {
+          "package_name": "com.example.green_master"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "419419890925-iuiq62c7qb75b4e4p8t0i8mqa52cd0kv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfSmWXOimR22HMVe6hliOCNs6ZDRzk79E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "419419890925-iuiq62c7qb75b4e4p8t0i8mqa52cd0kv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "419419890925-fqr7l6spaoglapvsq1cqs62j6fu37iq1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "green.terrarium"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419419890925:android:2f3295f7a3c409cb7c58e4",
+        "android_client_info": {
+          "package_name": "green.terrarium"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "419419890925-iuiq62c7qb75b4e4p8t0i8mqa52cd0kv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfSmWXOimR22HMVe6hliOCNs6ZDRzk79E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "419419890925-iuiq62c7qb75b4e4p8t0i8mqa52cd0kv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "419419890925-fqr7l6spaoglapvsq1cqs62j6fu37iq1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "green.terrarium"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
