@@ -30,6 +30,12 @@ class MyApp extends StatelessWidget {
           ),
         ),
         home: const HomeScreen(),
+        builder: (context, child) => MediaQuery(
+          data: MediaQuery.of(context).copyWith(
+            textScaleFactor: 1.0,
+          ),
+          child: child!,
+        ),
       ),
     );
   }
