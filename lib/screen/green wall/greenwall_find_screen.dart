@@ -21,7 +21,7 @@ class GreenWallFindScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var controller = useTextEditingController(text: "test10");
+    var controller = useTextEditingController(text: "");
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(),

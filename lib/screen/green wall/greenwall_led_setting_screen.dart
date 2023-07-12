@@ -69,7 +69,7 @@ class GreenWallLedSettingScreen extends HookConsumerWidget {
             ],
           ),
           Expanded(
-            child: isAuto.value ? auto(context, startTime, endTime, brighteness) : manual(isOn),
+            child: isAuto.value ? auto(context, startTime, endTime, brighteness) : manual(isOn, brighteness),
           ),
           GreenButton(
             width: 200,
@@ -98,7 +98,7 @@ class GreenWallLedSettingScreen extends HookConsumerWidget {
     );
   }
 
-  Column manual(ValueNotifier<bool> isOn) {
+  Column manual(ValueNotifier<bool> isOn, ValueNotifier<double> brighteness) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -122,6 +122,34 @@ class GreenWallLedSettingScreen extends HookConsumerWidget {
                 isOn.value = false;
               },
             ).expanded(),
+          ],
+        ),
+        const SizedBox(height: 30),
+        Text("밝기 조절").textColor(Colors.black).fontWeight(FontWeight.bold).fontSize(17),
+        const SizedBox(height: 30),
+        SliderTheme(
+          data: SliderThemeData(
+            overlayShape: SliderComponentShape.noOverlay,
+          ),
+          child: Slider(
+            activeColor: primaryColor,
+            // inactiveColor: primaryColor,
+            thumbColor: primaryColor,
+            value: brighteness.value,
+            min: 0,
+            max: 100,
+            divisions: 100,
+            label: brighteness.value.round().toString(),
+            onChanged: (double newValue) {
+              brighteness.value = newValue;
+            },
+          ),
+        ),
+        Row(
+          children: [
+            Text("0").textColor(gray),
+            Spacer(),
+            Text("100").textColor(gray),
           ],
         ),
       ],
