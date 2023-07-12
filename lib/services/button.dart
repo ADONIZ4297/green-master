@@ -65,7 +65,7 @@ class Button extends HookWidget {
                     Positioned.fill(
                       child: IgnorePointer(
                         child: AnimatedContainer(
-                          duration: Duration(milliseconds: 150),
+                          duration: const Duration(milliseconds: 150),
                           decoration: BoxDecoration(
                             color: isCliked.value ? Colors.black.withOpacity(0.1) : Colors.transparent,
                             borderRadius: BorderRadius.circular(10),

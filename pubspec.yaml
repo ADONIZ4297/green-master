@@ -45,6 +45,8 @@ dependencies:
   fl_chart: ^0.62.0
   fluttertoast: ^8.2.2
   syncfusion_flutter_charts: ^21.2.9
+  flutter_reactive_ble: ^5.1.1
+  flutter_blue_plus: ^1.5.2
 
 
 dev_dependencies:

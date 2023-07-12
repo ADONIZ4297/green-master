@@ -11,14 +11,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:styled_widget/styled_widget.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class ChartData {
-  ChartData(this.x, this.y);
-  final int x;
-  final double? y;
-}
-
-class DataScreen extends ConsumerWidget {
-  const DataScreen({super.key});
+class GreenWallDataScreen extends ConsumerWidget {
+  const GreenWallDataScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -34,7 +28,7 @@ class DataScreen extends ConsumerWidget {
         tempData.forEach((key, value) {
           var date = DateTime.parse(key);
           print(date);
-          if (isSameDay(date, DateTime(2023, 6, 1))) {
+          if (isSameDay(date, DateTime.now())) {
             temperatureList.add(MapEntry(date, value));
           }
         });
@@ -49,7 +43,7 @@ class DataScreen extends ConsumerWidget {
         humiData.forEach((key, value) {
           var date = DateTime.parse(key);
           print(date);
-          if (isSameDay(date, DateTime(2023, 6, 1))) {
+          if (isSameDay(date, DateTime.now())) {
             humiList.add(MapEntry(date, value));
           }
         });

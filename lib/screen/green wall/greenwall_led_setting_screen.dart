@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:green_master/provider/greenwallSettingProvider.dart';
 import 'package:green_master/provider/greenwallRefProvider.dart';
 import 'package:green_master/services/button.dart';
@@ -17,8 +18,8 @@ import 'package:styled_widget/styled_widget.dart';
 
 var dateForamt = DateFormat("hh : mm");
 
-class LedSettingScreen extends HookConsumerWidget {
-  const LedSettingScreen({super.key});
+class GreenWallLedSettingScreen extends HookConsumerWidget {
+  const GreenWallLedSettingScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -73,17 +74,22 @@ class LedSettingScreen extends HookConsumerWidget {
           GreenButton(
             width: 200,
             text: "설정",
-            onPressed: () {
-              Navigator.pop(context);
+            onPressed: () async {
               String newEndTime = DateFormat.Hm().format(endTime.value);
               String newStartTime = DateFormat.Hm().format(startTime.value);
-              ref.watch(greenWallRefProvider).child("setting").child("led").update({
+              await ref.watch(greenWallRefProvider).child("setting").child("led").update({
                 "brightness": brighteness.value.toInt(),
                 "endTime": newEndTime,
                 "startTime": newStartTime,
                 "isAuto": isAuto.value,
                 "isOn": isOn.value,
               });
+              Fluttertoast.showToast(
+                msg: "설정 완료",
+                gravity: ToastGravity.TOP,
+                backgroundColor: primaryColor,
+                textColor: Colors.white,
+              );
             },
           ).center(),
           const SizedBox(height: 50),

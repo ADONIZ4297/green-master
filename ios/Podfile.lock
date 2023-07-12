@@ -38,6 +38,11 @@ PODS:
   - leveldb-library (1.22.2)
   - PromisesObjC (2.2.0)
   - Protobuf (3.23.2)
+  - reactive_ble_mobile (0.0.1):
+    - Flutter
+    - Protobuf (~> 3.5)
+    - SwiftProtobuf (~> 1.0)
+  - SwiftProtobuf (1.22.0)
   - Toast (4.0.0)
 
 DEPENDENCIES:
@@ -46,6 +51,7 @@ DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_blue_plus (from `.symlinks/plugins/flutter_blue_plus/ios`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
+  - reactive_ble_mobile (from `.symlinks/plugins/reactive_ble_mobile/ios`)
 
 SPEC REPOS:
   trunk:
@@ -57,6 +63,7 @@ SPEC REPOS:
     - leveldb-library
     - PromisesObjC
     - Protobuf
+    - SwiftProtobuf
     - Toast
 
 EXTERNAL SOURCES:
@@ -70,6 +77,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_blue_plus/ios"
   fluttertoast:
     :path: ".symlinks/plugins/fluttertoast/ios"
+  reactive_ble_mobile:
+    :path: ".symlinks/plugins/reactive_ble_mobile/ios"
 
 SPEC CHECKSUMS:
   Firebase: bd152f0f3d278c4060c5c71359db08ebcfd5a3e2
@@ -85,6 +94,8 @@ SPEC CHECKSUMS:
   leveldb-library: f03246171cce0484482ec291f88b6d563699ee06
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
   Protobuf: 5df4e9d2abd535fb675c68d171f6bc87983d27a6
+  reactive_ble_mobile: 9ce6723d37ccf701dbffd202d487f23f5de03b4c
+  SwiftProtobuf: 40bd808372cb8706108f22d28f8ab4a6b9bc6989
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
 
 PODFILE CHECKSUM: ef19549a9bc3046e7bb7d2fab4d021637c0c58a3

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:green_master/provider/greenwallSettingProvider.dart';
 import 'package:green_master/provider/greenwallRefProvider.dart';
 import 'package:green_master/services/button.dart';
@@ -17,8 +18,8 @@ import 'package:styled_widget/styled_widget.dart';
 
 var dateFormat = DateFormat("H시간 m분");
 
-class WaterSettingScreen extends HookConsumerWidget {
-  const WaterSettingScreen({super.key});
+class GreenWallWaterSettingScreen extends HookConsumerWidget {
+  const GreenWallWaterSettingScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -70,16 +71,21 @@ class WaterSettingScreen extends HookConsumerWidget {
           GreenButton(
             width: 200,
             text: "설정",
-            onPressed: () {
-              Navigator.pop(context);
+            onPressed: () async {
               String newPeriodTime = DateFormat.Hm().format(periodTime.value);
               String newWorkingTime = DateFormat.Hm().format(workingTime.value);
-              ref.watch(greenWallRefProvider).child("setting").child("motor").update({
+              await ref.watch(greenWallRefProvider).child("setting").child("motor").update({
                 "periodTime": newPeriodTime,
                 "workingTime": newWorkingTime,
                 "isAuto": isAuto.value,
                 "isOn": isOn.value,
               });
+              Fluttertoast.showToast(
+                msg: "설정 완료",
+                gravity: ToastGravity.TOP,
+                backgroundColor: primaryColor,
+                textColor: Colors.white,
+              );
             },
           ).center(),
           const SizedBox(height: 50),

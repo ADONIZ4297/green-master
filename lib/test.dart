@@ -1,5 +1,12 @@
 void main() {
-  // print("HI");
-  DateTime.now();
-  DateTime.parse("2023-6-9 12:30");
+  String asciiToHex(String asciiStr) {
+    List<int> chars = asciiStr.codeUnits;
+    StringBuffer hex = StringBuffer();
+    for (int ch in chars) {
+      hex.write(ch.toRadixString(16).padLeft(2, '0'));
+    }
+    return hex.toString();
+  }
+
+  print(asciiToHex("asndnakwdljfklasjdasjc"));
 }

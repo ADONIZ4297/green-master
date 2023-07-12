@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:green_master/screen/green%20wall/greenwall_find_screen.dart';
+import 'package:green_master/screen/terrarium/terrarium_find_screen.dart';
 import 'package:green_master/services/button.dart';
 import 'package:styled_widget/styled_widget.dart';
 
@@ -20,7 +21,12 @@ class HomeScreen extends StatelessWidget {
           Button(
             noColor: true,
             pressSize: 0.96,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                CupertinoPageRoute(builder: (context) => const TerrariumFindScreen()),
+              );
+            },
             child: Image.asset(
               "assets/images/terrarium.png",
             ),
