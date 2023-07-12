@@ -50,7 +50,8 @@ class TerrariumFindScreen extends HookConsumerWidget {
           // const SizedBox(height: 10),
           ListView(
             children: [
-              Text("연결됨").fontWeight(FontWeight.bold).fontSize(20),
+              if (ref.watch(bluetoothProvider).connectedDevices.isNotEmpty)
+                Text("연결됨").fontWeight(FontWeight.bold).fontSize(20),
               for (var device in ref.watch(bluetoothProvider).connectedDevices)
                 deviceWidget(device, true, ref, context).padding(vertical: 10),
               Text("기타 기기").fontWeight(FontWeight.bold).fontSize(20),
@@ -84,19 +85,14 @@ class TerrariumFindScreen extends HookConsumerWidget {
               for (BluetoothCharacteristic c in service.characteristics) {
                 print(c.uuid);
                 if (c.uuid.toString() == "fec26ec4-6d71-4442-9f81-55bc21d658d6") {
-                  await c.setNotifyValue(true);
-                  await c.write([70, 24]);
-                  // ref.read(characterProvider.notifier).state = c;
-                  // Navigator.push(
-                  //   context,
-                  //   CupertinoPageRoute(builder: (context) => const TerrariuManage()),
-                  // );
-                  // c.value.listen((value) {
-                  //   print(value);
-                  // });
+                  c.setNotifyValue(true);
+                  ref.read(characterProvider.notifier).state = c;
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(builder: (context) => const TerrariuManage()),
+                  );
                 }
               }
-              print(service.uuid);
             }
           },
           child: const Text("연결").textColor(Colors.white).bold().padding(vertical: 5, horizontal: 20).decorated(

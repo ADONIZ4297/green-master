@@ -8,6 +8,9 @@ import 'package:green_master/provider/terrariumDataProvider.dart';
 import 'package:green_master/screen/green%20wall/greenwall_data_screen.dart';
 import 'package:green_master/screen/green%20wall/greenwall_led_setting_screen.dart';
 import 'package:green_master/screen/green%20wall/greenwall_water_setting_screen.dart';
+import 'package:green_master/screen/terrarium/terrarium_data_screen.dart';
+import 'package:green_master/screen/terrarium/terrarium_water_setting_screen.dart';
+import 'package:green_master/screen/terrarium/terrariun_led_setting_screen.dart';
 import 'package:green_master/services/button.dart';
 import 'package:green_master/services/colors.dart';
 import 'package:green_master/services/fontStyle.dart';
@@ -19,46 +22,51 @@ class TerrariuManage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // print(ref.watch(terrariumDataProvider).value);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(ref.watch(terrariumDataProvider).value.toString()),
+          // Text(ref.watch(terrariumDataProvider).value.toString()),
+          // Text(utf8.decode(ref.watch(terrariumDataProvider).value ?? [])),
+          Text(ref.watch(terrariumProvider).terrariumData.humidity.toString()),
           const Text(
             "이끼 테라리움",
           ).textStyle(titleStyle),
           const SizedBox(height: 20),
           manageButton("식물등 LED 설정", "bulb", () async {
-            print(ref.read(characterProvider)?.properties.read);
+            // print(ref.read(characterProvider)?.properties.read);
             var decodedResponse = utf8.decode(ref.read(characterProvider)!.lastValue);
             print(decodedResponse);
             // ref.read(characterProvider)?.onValueChangedStream.listen((event) {
             //   print(event);
             // });
-            ref.read(characterProvider)?.write([0xff]);
+            // ref
+            //     .read(characterProvider)
+            //     ?.write([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], withoutResponse: true);
             // ref.read(characterProvider)?.descriptors.forEach((element) async {
             //   print("element");
             //   await element.write([0xff]);
             //   print(element);
             // });
             // await ref.read(characterProvider)?.write([0x12, 0x34]);
-            // Navigator.push(
-            //   context,
-            //   CupertinoPageRoute(builder: (context) => const GreenWallLedSettingScreen()),
-            // );
-          }),
-          manageButton("관수 시간 설정", "click", () {
             Navigator.push(
               context,
-              CupertinoPageRoute(builder: (context) => const GreenWallWaterSettingScreen()),
+              CupertinoPageRoute(builder: (context) => const TerrariumLedSettingScreen()),
+            );
+          }),
+          manageButton("안개 분무 설정", "click", () {
+            Navigator.push(
+              context,
+              CupertinoPageRoute(builder: (context) => const TerrariumWallWaterSettingScreen()),
             );
           }),
           manageButton("온도 습도 확인", "temperature", () {
             Navigator.push(
               context,
-              CupertinoPageRoute(builder: (context) => const GreenWallDataScreen()),
+              CupertinoPageRoute(builder: (context) => const TerrariumDataScreen()),
             );
           }),
           const Spacer(),

@@ -59,7 +59,7 @@ class GreenWallDataScreen extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text("온도 습도 확인").textStyle(titleStyle).padding(all: 30),
-              Text("현재온도 24ºC")
+              Text("현재온도 " + temperatureList.last.value.toString() + "ºC")
                   .textColor(primaryColor)
                   .fontSize(16)
                   .fontWeight(FontWeight.w500)
@@ -72,7 +72,7 @@ class GreenWallDataScreen extends ConsumerWidget {
                   .padding(horizontal: 30),
               const SizedBox(height: 20),
               chart(temperatureList, 'point.yºC').padding(horizontal: 20).expanded(),
-              Text("현재습도 52%")
+              Text("현재습도 " + humiList.last.value.toString() + "%")
                   .textColor(primaryColor)
                   .fontSize(16)
                   .fontWeight(FontWeight.w500)

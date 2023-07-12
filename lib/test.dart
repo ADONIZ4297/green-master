@@ -1,12 +1,6 @@
 void main() {
-  String asciiToHex(String asciiStr) {
-    List<int> chars = asciiStr.codeUnits;
-    StringBuffer hex = StringBuffer();
-    for (int ch in chars) {
-      hex.write(ch.toRadixString(16).padLeft(2, '0'));
-    }
-    return hex.toString();
-  }
-
-  print(asciiToHex("asndnakwdljfklasjdasjc"));
+  // var string = "HH4000";
+  print(true);
+  // print(DateTime.parse("2023-07-12 0330"));
+  // print(string.substring(2));
 }

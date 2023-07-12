@@ -11,8 +11,8 @@ class Bluetooth {
   bool isScanning = false;
 
   Bluetooth() {
-    checkConnected();
-    scan();
+    init();
+
     // flutterReactiveBle.statusStream.listen((status) {
     //   print(status);
     //   status.
@@ -29,6 +29,13 @@ class Bluetooth {
     //   print(event.length);
     //   devices = event;
     // });
+  }
+
+  void init() async {
+    if (await flutterBlue.isAvailable) {
+      await checkConnected();
+      await scan();
+    }
   }
 
   // service(Device device) async {

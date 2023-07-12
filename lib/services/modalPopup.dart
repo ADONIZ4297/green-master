@@ -40,7 +40,7 @@ class TimeModal extends StatelessWidget {
                 mode: CupertinoDatePickerMode.time,
                 initialDateTime: dateTime,
                 use24hFormat: use24,
-                minuteInterval: 5,
+                minuteInterval: 1,
                 onDateTimeChanged: (value) {
                   dateTime = value;
                 },
