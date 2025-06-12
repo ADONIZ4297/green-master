@@ -5,7 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class Bluetooth {
   // final flutterReactiveBle = FlutterReactiveBle();
-  FlutterBluePlus flutterBlue = FlutterBluePlus.instance;
+  // var flutterBlue = FlutterBluePlus.isAvailable;
   List<BluetoothDevice> connectedDevices = [];
   List<ScanResult> scanResults = [];
   bool isScanning = false;
@@ -32,7 +32,7 @@ class Bluetooth {
   }
 
   void init() async {
-    if (await flutterBlue.isAvailable) {
+    if (await FlutterBluePlus.isAvailable) {
       await checkConnected();
       await scan();
     }
@@ -42,7 +42,7 @@ class Bluetooth {
   //   List<BluetoothService> services = await device.discoverServices();
   // }
   checkConnected() async {
-    connectedDevices = await flutterBlue.connectedDevices;
+    connectedDevices = await FlutterBluePlus.connectedDevices;
   }
 
   scan() async {
@@ -51,16 +51,16 @@ class Bluetooth {
       // 기존에 스캔된 리스트 삭제
       scanResults.clear();
       // 스캔 시작, 제한 시간 4초
-      flutterBlue.startScan(timeout: const Duration(seconds: 60));
+      FlutterBluePlus.startScan(timeout: const Duration(seconds: 60));
       // 스캔 결과 리스너
-      flutterBlue.scanResults.listen((results) {
+      FlutterBluePlus.scanResults.listen((results) {
         print(results.length);
         // List<ScanResult> 형태의 results 값을 scanResultList에 복사
         scanResults = results;
       });
     } else {
       // 스캔 중이라면 스캔 정지
-      flutterBlue.stopScan();
+      FlutterBluePlus.stopScan();
     }
   }
 }
